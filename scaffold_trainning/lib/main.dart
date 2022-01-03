@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:scaffold_trainning/page/home_screen.dart';
 
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter',
       theme: ThemeData(
-        primaryColor: Colors.white,
+        primarySwatch: Colors.pink,
       ),
       home: home_screen(),
     );

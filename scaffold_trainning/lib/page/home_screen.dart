@@ -1,4 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:scaffold_trainning/page/detail_screen.dart';
+import 'package:scaffold_trainning/widget/listitems.dart';
+import 'package:scaffold_trainning/widget/product_detail.dart';
 
 class home_screen extends StatefulWidget {
   home_screen({Key? key}) : super(key: key);
@@ -10,29 +14,23 @@ class home_screen extends StatefulWidget {
 class _home_screenState extends State<home_screen> {
   @override
   Widget build(BuildContext context) {
-    var categories;
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.search,
-                    size: 30,
-                  )
-                ],
-              )
-            ],
-          ),
-        ],
         backgroundColor: Colors.pink,
-        title: Text(
-          'Home',
-          style: TextStyle(color: Colors.white),
+        title: const Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Home',
+            style:
+                TextStyle(fontFamily: 'Quicksand', fontWeight: FontWeight.bold),
+          ),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          )
+        ],
       ),
       drawer: Drawer(
         elevation: 20.0,
@@ -169,220 +167,191 @@ class _home_screenState extends State<home_screen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.pink,
-        selectedFontSize: 13,
-        unselectedFontSize: 13,
-        iconSize: 25,
-        items: const [
-          BottomNavigationBarItem(
-            label: "",
-            icon: Icon(Icons.home_outlined),
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/pic/bg_bottom_bar.png'),
+            fit: BoxFit.cover,
           ),
-          BottomNavigationBarItem(
-            label: "",
-            icon: Icon(Icons.favorite_outline),
-          ),
-          BottomNavigationBarItem(
-            label: "",
-            icon: Icon(Icons.shopping_cart_outlined),
-          ),
-          BottomNavigationBarItem(
-            label: "",
-            icon: Icon(Icons.person_outline),
-          ),
-        ],
-      ),
-      body: Container(
-        child: ListView(
-          children: [
-            LimitedBox(
-              maxHeight: 250,
-              child: PageView(
-                children: const [
-                  AdsSlideCard(
-                    slideImage: "assets/products/banners/b1.jpg",
-                  ),
-                  AdsSlideCard(
-                    slideImage: "assets/products/banners/b2.jpg",
-                  ),
-                  AdsSlideCard(
-                    slideImage: "assets/products/banners/b3.jpg",
-                  ),
-                  AdsSlideCard(
-                    slideImage: "assets/products/banners/b4.jpg",
-                  ),
-                  AdsSlideCard(
-                    slideImage: "assets/products/banners/b5.jpg",
-                  ),
-                  AdsSlideCard(
-                    slideImage: "assets/products/banners/b6.jpg",
-                  ),
-                ],
-              ),
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.pink,
+          selectedFontSize: 13,
+          unselectedFontSize: 13,
+          iconSize: 25,
+          items: const [
+            BottomNavigationBarItem(
+              label: "",
+              icon: Icon(Icons.home_outlined),
             ),
-            GridView.count(
-              crossAxisCount: 5,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              children: const [
-                MenuCate(
-                  iconAsset: 'assets/icons/ic_men.png',
-                  name: 'Men',
-                  colorpic: Colors.red,
-                  colortext: Colors.red,
-                ),
-                MenuCate(
-                  iconAsset: 'assets/icons/ic_woman.png',
-                  name: 'Women',
-                  colorpic: Colors.blueAccent,
-                  colortext: Colors.blueAccent,
-                ),
-                MenuCate(
-                  iconAsset: 'assets/icons/ic_kids.png',
-                  name: 'Baby & Kids',
-                  colorpic: Colors.yellow,
-                  colortext: Colors.yellow,
-                ),
-                MenuCate(
-                  iconAsset: 'assets/icons/ic_bag.png',
-                  name: 'Bags',
-                  colorpic: Colors.lightBlue,
-                  colortext: Colors.lightBlue,
-                ),
-                MenuCate(
-                  iconAsset: 'assets/icons/ic_decor.png',
-                  name: 'Decor',
-                  colorpic: Colors.greenAccent,
-                  colortext: Colors.greenAccent,
-                ),
-              ],
+            BottomNavigationBarItem(
+              label: "",
+              icon: Icon(Icons.favorite_outline),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 10, top: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Newest Arrivals",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
-                  SizedBox(
-                    width: 90,
-                  ),
-                  Text("View all", style: TextStyle(color: Colors.grey)),
-                  SizedBox(
-                    width: 3,
-                  ),
-                  //         Container(
-                  //   color: Colors.grey[200],
-                  //   height: 8,
-                  // ),
-                  // LimitedBox(
-                  //   maxHeight: 220,
-                  //   child: ListView(
-                  //     scrollDirection: Axis.horizontal,
-                  //     children: [TrendingCard(), TrendingCard(), TrendingCard()],
-                  //   ),
-                  // ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  // SingleChildScrollView(
-                  //   scrollDirection: Axis.horizontal,
-                  //   child: Row(
-                  //     children: List.generate(categories.lenght, (index) {
-                  //       return Padding(
-                  //         padding: const EdgeInsets.only(left: 15),
-                  //         child: Container(
-                  //           width: 180,
-                  //           height: 220,
-                  //           child: Stack(
-                  //             children: [
-                  //               Container(
-                  //                 decoration: BoxDecoration(
-                  //                     image: DecorationImage(
-                  //                         image: NetworkImage(
-                  //                             categories[index]['imgUrl']),
-                  //                         fit: BoxFit.cover),
-                  //                     borderRadius: BorderRadius.circular(5)),
-                  //               ),
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //       color: Colors.black.withOpacity(0.1),
-                  //       borderRadius: BorderRadius.circular(5)),
-                  // ),
-                  // Positioned(
-                  //   bottom: 5,
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(10.0),
-                  //     child: Text(
-                  //       categories[index]['title'],
-                  //       style: TextStyle(
-                  //           fontSize: 18,
-                  //           fontWeight: FontWeight.bold,
-                  //           color: Colors.white),
-                  //     ),
-                  //   ),
-                  // )
-                  //             ],
-                  //           ),
-                  //         ),
-                  //       );
-                  //     }),
-                  //   ),
-                  // ),
-                ],
-              ),
+            BottomNavigationBarItem(
+              label: "",
+              icon: Icon(Icons.shopping_cart_outlined),
+            ),
+            BottomNavigationBarItem(
+              label: "",
+              icon: Icon(Icons.person_outline),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class TrendingCard extends StatelessWidget {
-  const TrendingCard({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Image.asset(
-          "assets/products/dress/dress_1.jpeg",
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-}
-
-class AdsSlideCard extends StatelessWidget {
-  const AdsSlideCard({Key? key, required this.slideImage}) : super(key: key);
-  final String slideImage;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        child: Container(
-          height: 200,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              slideImage,
-              fit: BoxFit.cover,
+      body: Column(
+        children: [
+          CarouselSlider(
+            options: CarouselOptions(
+              viewportFraction: 1.0,
+              autoPlay: true,
+              enlargeCenterPage: true,
+            ),
+            items: imgList.map(
+              (url) {
+                return Image.asset(
+                  'assets/products/banners/' + url,
+                  fit: BoxFit.cover,
+                  width: 1000.0,
+                  height: 120.0,
+                );
+              },
+            ).toList(),
+          ),
+          GridView.count(
+            crossAxisCount: 5,
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            children: const [
+              MenuCate(
+                iconAsset: 'assets/icons/ic_men.png',
+                name: 'Men',
+                colorpic: Colors.red,
+                colortext: Colors.red,
+              ),
+              MenuCate(
+                iconAsset: 'assets/icons/ic_woman.png',
+                name: 'Women',
+                colorpic: Colors.blueAccent,
+                colortext: Colors.blueAccent,
+              ),
+              MenuCate(
+                iconAsset: 'assets/icons/ic_kids.png',
+                name: 'Baby & Kids',
+                colorpic: Colors.yellow,
+                colortext: Colors.yellow,
+              ),
+              MenuCate(
+                iconAsset: 'assets/icons/ic_bag.png',
+                name: 'Bags',
+                colorpic: Colors.lightBlue,
+                colortext: Colors.lightBlue,
+              ),
+              MenuCate(
+                iconAsset: 'assets/icons/ic_decor.png',
+                name: 'Decor',
+                colorpic: Colors.greenAccent,
+                colortext: Colors.greenAccent,
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  'Newwest Arrival',
+                  style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'View All',
+                  style: TextStyle(fontFamily: 'Quicksand', fontSize: 16),
+                )
+              ],
             ),
           ),
-        ),
+          SizedBox(
+            height: 250,
+            width: double.maxFinite,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                itemBuilder: (_, i) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailScreen(
+                            text: name[i],
+                            cost: cost[i],
+                            images: dress[i],
+                            sale: sale[i],
+                          ),
+                        ),
+                      );
+                    },
+                    child: ListItems(
+                      text: name[i],
+                      image: dress[i],
+                      cost: cost[i],
+                      sale: sale[i],
+                    ),
+                  );
+                }),
+          ),
+        ],
       ),
     );
   }
 }
+
+// class TrendingCard extends StatelessWidget {
+//   const TrendingCard({Key? key}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 200,
+//       child: ClipRRect(
+//         borderRadius: BorderRadius.circular(10),
+//         child: Image.asset(
+//           "assets/products/dress/dress_1.jpeg",
+//           fit: BoxFit.cover,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class AdsSlideCard extends StatelessWidget {
+//   const AdsSlideCard({Key? key, required this.slideImage}) : super(key: key);
+//   final String slideImage;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.all(8.0),
+//       child: Card(
+//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+//         child: Container(
+//           height: 200,
+//           child: ClipRRect(
+//             borderRadius: BorderRadius.circular(10),
+//             child: Image.asset(
+//               slideImage,
+//               fit: BoxFit.cover,
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class MenuCate extends StatelessWidget {
   const MenuCate({
@@ -428,3 +397,24 @@ class MenuCate extends StatelessWidget {
     );
   }
 }
+
+final cost = [5, 10, 15];
+final sale = [10, 20, 30];
+final List name = [
+  "Red Dress",
+  "Vamsi",
+  "Idalia",
+];
+final List dress = [
+  'dress_1.jpeg',
+  'dress_2.jpeg',
+  'dress_3.jpeg',
+];
+final imgList = [
+  'b1.jpg',
+  'b2.jpg',
+  'b3.jpg',
+  'b4.jpg',
+  'b5.jpg',
+  'b6.jpg',
+];
