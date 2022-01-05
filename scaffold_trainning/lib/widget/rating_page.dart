@@ -7,15 +7,16 @@ class RatingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 20),
+      padding: const EdgeInsets.only(left: 20, bottom: 120),
+      color: Colors.white60,
       child: Row(
         children: [
           Container(
             width: 150,
-            height: 150,
-            decoration: BoxDecoration(
+            height: 180,
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.grey[400],
+              color: Colors.black12,
             ),
             child: Center(
               child: Column(
@@ -23,25 +24,25 @@ class RatingScreen extends StatelessWidget {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        '3.0',
+                    children: [
+                      const Text(
+                        '5.0',
                         style: TextStyle(
-                            fontFamily: 'Pushster',
+                            fontFamily: 'Quicksand',
                             fontWeight: FontWeight.bold,
                             fontSize: 24),
                       ),
                       Icon(
                         Icons.star,
-                        color: Colors.amber,
+                        color: Colors.amber[700],
                         size: 35,
                       )
                     ],
                   ),
                   const Text(
-                    '6 Reviews',
+                    '2000 Reviews',
                     style: TextStyle(
-                        fontFamily: 'Pushster',
+                        fontFamily: 'Quicksand',
                         color: Colors.black,
                         fontSize: 20),
                   )
@@ -56,29 +57,29 @@ class RatingScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               StarReview(
-                percent: 0.2,
+                percent: 0.9,
                 star: 5,
-                color: Colors.green,
+                color: Colors.greenAccent,
               ),
               StarReview(
-                percent: 0.18,
+                percent: 0.4,
                 star: 4,
-                color: Colors.green,
+                color: Colors.greenAccent,
               ),
               StarReview(
                 percent: 0.4,
                 star: 3,
-                color: Colors.amber,
+                color: Colors.yellowAccent,
               ),
               StarReview(
                 percent: 0.15,
                 star: 2,
-                color: Colors.amber,
+                color: Colors.yellowAccent,
               ),
               StarReview(
                 percent: 0.15,
                 star: 1,
-                color: Colors.red,
+                color: Colors.redAccent,
               )
             ],
           )
@@ -108,13 +109,13 @@ class StarReview extends StatelessWidget {
             Text(
               star.toString(),
               style: const TextStyle(
-                  fontFamily: 'Pushster',
+                  fontFamily: 'Quicksand',
                   fontWeight: FontWeight.bold,
                   fontSize: 18),
             ),
-            const Icon(
+            Icon(
               Icons.star,
-              color: Colors.amber,
+              color: Colors.amber[700],
             )
           ],
         ),
@@ -122,12 +123,11 @@ class StarReview extends StatelessWidget {
           width: 160,
           lineHeight: 15,
           percent: percent,
-
           linearStrokeCap: LinearStrokeCap.roundAll,
           progressColor: color,
           backgroundColor: Colors.grey[400],
           animation: true,
-          //animationDuration: 5000,
+          animationDuration: 1000,
         ),
       ],
     );

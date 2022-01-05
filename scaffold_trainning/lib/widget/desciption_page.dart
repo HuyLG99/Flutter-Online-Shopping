@@ -11,17 +11,17 @@ class _DescriptionscreenState extends State<Descriptionscreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.pink[100],
+      color: Colors.white60,
       padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
       child: Column(
         children: [
           const Center(
             child: Text(
-                'New T-shirt from SSSENTIALS in 5 colors on sale on Black Friday INFO T-SHIRT V2 Size: M/L/XL. 100% cotton. Color: White Black Pink Olive Gray Designed by SSSENTIALS',
+                'Ever wondered what it would be like to wear a cloud? An affordable t-shirt that fits well and is perfect for any event, giveaway, team, or group. Made from ultra-light preshrunk cotton jersey & available in a variety of colors. Start your t-shirt design or call for free support.',
                 style: TextStyle(
-                  fontSize: 14,
-                  fontFamily: 'Quicksand',
-                )),
+                    fontSize: 16,
+                    fontFamily: 'Quicksand',
+                    fontWeight: FontWeight.w500)),
           ),
           const SizedBox(
             height: 20,
@@ -31,29 +31,30 @@ class _DescriptionscreenState extends State<Descriptionscreen> {
             children: [
               const Text('PinCode',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontFamily: 'Quicksand',
-                    color: Colors.green,
+                    color: Colors.orange,
                     fontWeight: FontWeight.bold,
                   )),
               const Text('Check Avaliability',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontFamily: 'Quicksand',
                     fontWeight: FontWeight.bold,
-                    color: Colors.green,
+                    color: Colors.orange,
                   )),
               Column(
                 children: const [
                   Text('Delivery By.',
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 16,
                           fontFamily: 'Quicksand',
                           fontWeight: FontWeight.bold,
-                          color: Colors.green)),
+                          color: Colors.orange)),
                   Text('25 June, Monday',
                       style: TextStyle(
-                        fontSize: 14,
+                        color: Colors.orange,
+                        fontSize: 16,
                         fontFamily: 'Quicksand',
                         fontWeight: FontWeight.bold,
                       ))
@@ -65,9 +66,10 @@ class _DescriptionscreenState extends State<Descriptionscreen> {
               alignment: Alignment.centerLeft,
               child: Text('Colors',
                   style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Quicksand',
-                  ))),
+                      fontSize: 16,
+                      fontFamily: 'Quicksand',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black))),
           const SizedBox(
             height: 20,
           ),
@@ -103,9 +105,9 @@ class _DescriptionscreenState extends State<Descriptionscreen> {
               alignment: Alignment.centerLeft,
               child: Text('Size',
                   style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Quicksand',
-                  ))),
+                      fontSize: 1,
+                      fontFamily: 'Quicksand',
+                      fontWeight: FontWeight.bold))),
           const SizedBox(
             height: 20,
           ),

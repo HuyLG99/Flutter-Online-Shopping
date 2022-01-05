@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:scaffold_trainning/page/detail_screen.dart';
 import 'package:scaffold_trainning/widget/listitems.dart';
-import 'package:scaffold_trainning/widget/product_detail.dart';
 
 class home_screen extends StatefulWidget {
   home_screen({Key? key}) : super(key: key);
@@ -57,7 +56,8 @@ class _home_screenState extends State<home_screen> {
                 ),
               ],
             ),
-            Padding(
+            Container(
+              color: Colors.pink[100],
               padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -281,7 +281,7 @@ class _home_screenState extends State<home_screen> {
             width: double.maxFinite,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 3,
+                itemCount: 5,
                 itemBuilder: (_, i) {
                   return GestureDetector(
                     onTap: () {
@@ -398,17 +398,21 @@ class MenuCate extends StatelessWidget {
   }
 }
 
-final cost = [5, 10, 15];
-final sale = [10, 20, 30];
+final cost = [5, 10, 15, 30, 15, 15];
+final sale = [10, 20, 30, 15, 15, 15];
 final List name = [
   "Red Dress",
-  "Vamsi",
-  "Idalia",
+  "Vanila",
+  "Lolita",
+  "Canvas",
+  "Lumi",
 ];
 final List dress = [
   'dress_1.jpeg',
   'dress_2.jpeg',
   'dress_3.jpeg',
+  'dress_6.jpeg',
+  'dress_8.jpeg',
 ];
 final imgList = [
   'b1.jpg',
